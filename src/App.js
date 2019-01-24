@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {fetchCharacters} from './services/Characterservice';
 import Filters from './components/Filters';
+import CharacterList from './components/CharacterList';
 import './App.css';
 
 
@@ -12,6 +13,7 @@ class App extends Component {
       name:'',
       characters: []
     };
+    this.getNameFilter = this.getNameFilter.bind(this);
   }
    
   componentDidMount() {
@@ -44,7 +46,8 @@ class App extends Component {
     
   return (
       <div className="App">
-        <Filters filter={this.getNameFilter} />
+        <Filters filter={this.getNameFilter()} />
+        <CharacterList list={this.filterMe()} />
       </div>
     );
   }

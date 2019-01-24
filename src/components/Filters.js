@@ -13,7 +13,7 @@ class Filters extends Component {
 }
 
 Filters.propTypes = {
-  action: PropTypes.func.isRequired
+  filter: PropTypes.func.isRequired
 };
 
 export default Filters;
