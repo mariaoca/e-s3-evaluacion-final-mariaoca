@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {fetchCharacters} from './services/Characterservice';
+import Filters from './components/Filters';
+import CharacterList from './components/CharacterList';
 //import './App.scss';
 
 class App extends Component {
@@ -10,6 +12,7 @@ class App extends Component {
       filter:''
     };
     this.getFilter = this.getFilter.bind(this);
+    this.filterList = this.filterList.bind(this);
   }
   filterList(){
     const {characters, filter} = this.state;
@@ -43,24 +46,14 @@ class App extends Component {
   
 
  render() {
-   //const {characters} = this.state;
+   //const {filter} = this.state;
    return(
      <div className="App">
-       <h1 className="app__title">Harry Potter Characters</h1>
-       <input  type="text" className="filter__app" onKeyUp={this.getFilter}/>
-        <ul className="app__list">
-          {this.filterList().map(item => {
-            return (
-              <li className="item_list" key={item.id}>
-                <div className="character">
-                  <img className="character__img" src={item.image} alt={item.name} />
-                  <h2 className="character__name">{item.name}</h2>
-                  <p className="character__house">{item.house}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul> 
+       <header className="app_header">
+         <h1 className="app__title">Harry Potter Characters</h1>
+       </header>
+        < Filters getFilter={this.getFilter} />
+        < CharacterList filterList={this.filterList} />
      </div>
    );
  }
