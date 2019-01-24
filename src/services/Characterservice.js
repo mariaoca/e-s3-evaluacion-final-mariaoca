@@ -1,4 +1,4 @@
-const charactersApi = 'http://hp-api.herokuapp.com/api/characters';
-const fetchCharacters  = () => fetch(charactersApi).then(res => res.json());
+const url = 'http://hp-api.herokuapp.com/api/characters';
+const fetchCharacters  = () => fetch(url).then(res => res.json());
 
 export {fetchCharacters};
