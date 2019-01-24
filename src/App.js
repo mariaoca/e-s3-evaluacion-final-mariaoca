@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import {fetchCharacters} from './services/Characterservice';
 import Filters from './components/Filters';
 import CharacterList from './components/CharacterList';
+import CardDetail from './components/CardDetail';
+
 //import './App.scss';
 
 class App extends Component {
@@ -46,14 +49,20 @@ class App extends Component {
   
 
  render() {
-   //const {filter} = this.state;
-   return(
+   return (
      <div className="App">
        <header className="app_header">
          <h1 className="app__title">Harry Potter Characters</h1>
        </header>
-        < Filters getFilter={this.getFilter} />
-        < CharacterList filterList={this.filterList} />
+       <Switch>
+         <Route exact path="/" render={() => (
+           <Fragment>
+             <Filters getFilter={this.getFilter} />
+             <CharacterList filterList={this.filterList} />
+           </Fragment>
+         )} />
+         <Route path="/character/:id" render={props => <CardDetail match={props.match} characters={this.state.characters} />} />
+       </Switch>
      </div>
    );
  }
