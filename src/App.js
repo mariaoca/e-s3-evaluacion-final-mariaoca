@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {fetchCharacters} from './services/Characterservice';
+import Filters from './components/Filters';
 import './App.css';
 
 
@@ -8,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name:'',
       characters: []
     };
   }
@@ -26,14 +28,23 @@ class App extends Component {
       }); 
     });
   }
+  filterMe() {
+    const {characters, name} = this.state;
+
+    return characters.filter(item => item.name.toUpperCase().includes(name.toUpperCase()));
+  }
+  getNameFilter(e) {
+    const newName = e.currentTarget.value;
+    this.setState({
+      name: newName
+    })
+  }
 
   render() {
     
   return (
       <div className="App">
-        <h2 className="app_title">Harry Potter Characters</h2>
-        <label />
-        <input />
+        <Filters filter={this.getNameFilter} />
       </div>
     );
   }
