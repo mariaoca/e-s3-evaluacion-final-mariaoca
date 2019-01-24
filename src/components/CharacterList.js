@@ -10,7 +10,7 @@ class CharacterList extends Component {
                 {this.props.filterList().map(item => {
                     return (
                         <li className="item_list" key={item.id}>
-                            <Link to={`/CardDetail/${item.id}`}>
+                            <Link to={`/character/${item.id}`}>
                                 <CharacterCard item={item} />
                             </Link>
                         </li>

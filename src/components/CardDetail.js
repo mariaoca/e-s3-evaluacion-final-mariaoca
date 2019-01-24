@@ -15,10 +15,10 @@ class CardDetail extends Component {
                <Fragment>
                    <img src={image} alt={name} className="card__img"/>
                    <h2 className="card__name">{name}</h2>
-                   <p className="card__house">{`Casa:${house}`}</p>
-                   <p className="card__year">{`Año nacimiento:${yearOfBirth}`}</p>
-                   <p className="card__patronus">{`Patronus:${patronus}`}</p>
-                   <p className="card__alive">{`Estado:${(alive)?'vivo':'muerto'}`}</p>
+                   <p className="card__house">{`Casa: ${house}`}</p>
+                   <p className="card__year">{`Año nacimiento: ${yearOfBirth}`}</p>
+                   <p className="card__patronus">{`Patronus: ${patronus}`}</p>
+                   <p className="card__alive">{`Estado:${(alive)? 'vivo': 'muerto'}`}</p>
                   <Link to="/">Volver</Link> 
                </Fragment>
 
