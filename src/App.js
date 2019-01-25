@@ -4,7 +4,7 @@ import {fetchCharacters} from './services/Characterservice';
 import Filters from './components/Filters';
 import CharacterList from './components/CharacterList';
 import CardDetail from './components/CardDetail';
-import './App.scss';
+import './stylesheets/App.scss';
 
 class App extends Component {
   constructor(props) {

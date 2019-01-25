@@ -1,0 +1,23 @@
+@import '_cardDetail'; 
+@import '_characterCard';
+@import '_characterList';
+@import '_filters';   
+
+.app__list {
+    list-style: none;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.app__title {
+    display:flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
