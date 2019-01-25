@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 
 class CardDetail extends Component {
     render() {
-        const { characters } = this.props;
+        const {characters} = this.props;
         const characterId = this.props.match.params.id;
 
         if (characters.length > 0 && characterId < characters.length) {
             const mycharacter = characters[characterId];
-            const { name, house, yearOfBirth, patronus, image, alive } = mycharacter;
+            const {name, house, yearOfBirth, patronus, image, alive} = mycharacter;
 
             return (
                 <div className="card">
