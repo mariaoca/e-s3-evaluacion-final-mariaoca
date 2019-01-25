@@ -58,7 +58,7 @@ class App extends Component {
          <Route exact path="/" render={() => (
            <Fragment>
              <Filters getFilter={this.getFilter} />
-             <CharacterList filterList={this.filterList} />
+             <CharacterList filterList={this.filterList()} />
            </Fragment>
          )} />
          <Route path="/character/:id" render={props => <CardDetail match={props.match} characters={this.state.characters} />} />

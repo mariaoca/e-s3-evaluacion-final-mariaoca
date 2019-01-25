@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 
 class CardDetail extends Component {
@@ -16,9 +18,9 @@ class CardDetail extends Component {
                    <img src={image} alt={name} className="card__img"/>
                    <h2 className="card__name">{name}</h2>
                    <p className="card__house">{`Casa: ${house}`}</p>
-                   <p className="card__year">{`Año nacimiento: ${yearOfBirth}`}</p>
+                   <p className="card__year">{`Año de nacimiento: ${yearOfBirth}`}</p>
                    <p className="card__patronus">{`Patronus: ${patronus}`}</p>
-                   <p className="card__alive">{`Estado:${(alive)? 'vivo': 'muerto'}`}</p>
+                   <p className="card__alive">{`Estado:${(alive) ? ' vivo': ' muerto'}`}</p>
                   <Link to="/">Volver</Link> 
                </Fragment>
 
@@ -32,5 +34,10 @@ class CardDetail extends Component {
            );
        }
     }
+}
+
+CardDetail.proptype = {
+    characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+    characterId: PropTypes.object.isRequired
 }
 export default CardDetail;
