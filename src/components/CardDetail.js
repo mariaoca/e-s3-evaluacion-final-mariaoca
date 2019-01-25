@@ -20,7 +20,7 @@ class CardDetail extends Component {
                     <p className="card__house">{`Casa: ${house}`}</p>
                     <p className="card__year">{`Año de nacimiento: ${yearOfBirth}`}</p>
                     <p className="card__patronus">{`Patronus: ${patronus}`}</p>
-                    <p className="card__alive">{`Estado:${(alive) ? ' vivo' : ' falleció'}`}</p>
+                    <p className="card__alive">{`Estado:${(alive) ? ' vivo' : ' 💀'}`}</p>
                     <Link className="link__back" to="/">Atrás</Link>
                 </div>
 
