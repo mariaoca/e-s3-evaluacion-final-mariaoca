@@ -11,10 +11,12 @@ class App extends Component {
     super(props);
     this.state = {
       characters: [],
-      filter: ''
+      filter: '',
+      filterHouse: ''
     };
     this.getFilter = this.getFilter.bind(this);
     this.filterList = this.filterList.bind(this);
+    this.newFilter = this.newFilter.bind(this);
   }
   filterList() {
     const { characters, filter } = this.state;
@@ -26,6 +28,21 @@ class App extends Component {
     this.setState({
       filter: query
     });
+  }
+
+  newFilter(e) {
+    const query = e.currentTarget.value;
+    this.setState({
+      filterHouse:query
+    });
+  }  
+
+  filterHouse () {
+    const {characters,filterHouse} = this.state;
+    if (filterHouse === 'no'){
+      return characters.filter(item => item.house === '')
+    }
+    return characters.filter(item => item.house.toUpperCase().includes(filterHouse.toUpperCase()));
   }
 
 
@@ -56,8 +73,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => (
             <Fragment>
-              <Filters getFilter={this.getFilter} />
-              <CharacterList filterList={this.filterList()} />
+              <Filters getFilter={this.getFilter}  newFilter={this.newFilter}/>
+              <CharacterList filterList={this.filterHouse()}  />
             </Fragment>
           )} />
           <Route path="/character/:id" render={props => <CardDetail match={props.match} characters={this.state.characters} />} />

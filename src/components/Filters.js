@@ -6,6 +6,7 @@ class Filters extends Component {
         return (
             <div className="filter__box">
                 <input type="text" className="filter__app" onKeyUp={this.props.getFilter} />
+                <input type="text" className="filter__two" onKeyUp={this.props.newFilter}/>
             </div>
         );
     }
